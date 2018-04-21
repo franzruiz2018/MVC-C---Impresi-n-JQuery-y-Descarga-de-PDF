@@ -8,9 +8,9 @@
 
 
 
-function ImprimirPrintJQuery(ContenidoID) {
-    $('#' + ContenidoID).print();
-}
+    function ImprimirPrintJQuery(ContenidoID) {
+        $('#' + ContenidoID).print();
+    }
 function ImprimirJS(ContenidoId) {
     var restorePage = document.body.innerHTML;
     var printContent = document.getElementById(ContenidoId).innerHTML;
