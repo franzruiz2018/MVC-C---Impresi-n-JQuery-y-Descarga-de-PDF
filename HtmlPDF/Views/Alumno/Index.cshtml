@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Index";  
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Alumnos</h2>
+
+<div id="reporte" class="reporte" >
+    <h3>Lista de Alumnos</h3>
+    <p>Total de Alumnos: @ViewBag.NumRegistros</p>
+    <p>Total de Alumnos:  @Enumerable.Count(ViewBag.ListaAlumnos)</p>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>DNI</th>
+            <th>Dirección</th>
+            <th>Fecha Registro</th>
+            <th>Hora Registro</th>
+        </tr>
+        @foreach (var alumno in ViewBag.ListaAlumnos)
+        { 
+        <tr>
+            <td>@alumno.id</td>
+            <td>@alumno.name</td>
+            <td>@alumno.dni</td>
+            <td>@alumno.direccion</td>
+            <td>@Convert.ToDateTime(alumno.fechaRegistro).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(alumno.fechaRegistro).ToString("hh:mm")</td>
+        </tr>
+        }
+    </table>
+</div>
+<input type="button" class="btn btn-default"  onclick="DescargarPDF('reporte', 'ReporteNet')" value="Descargar PDF" />
+<input type="button" class="btn btn-default" onclick="ImprimirPrintJQuery()" value="Imprimir PrintJQuery" />
+<input type="button" class="btn btn-default" onclick="ImprimirJS('reporte')" value="Imprimir JS" />
+
