@@ -8,8 +8,8 @@
 
 
 
-function ImprimirPrintJQuery() {
-    $("#reporte").print();
+function ImprimirPrintJQuery(ContenidoID) {
+    $('#' + ContenidoID).print();
 }
 function ImprimirJS(ContenidoId) {
     var restorePage = document.body.innerHTML;
